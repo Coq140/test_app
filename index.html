@@ -1,125 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Connexion Privée</title>
+  <meta charset="UTF-8" />
+  <title>Bienvenue !</title>
   <style>
     body {
       background-color: #121212;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ff0066;
+      margin-bottom: 40px;
+      font-size: 2.5em;
+    }
+
+    .btn {
+      background-color: #ff0066;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      margin: 15px;
+      font-size: 1.2em;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 280px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #e6005c;
     }
 
     .container {
-      background: #1e1e1e;
-      padding: 40px;
-      border-radius: 15px;
-      width: 350px;
-      box-shadow: 0 0 15px #ff0066;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    h2 {
+    p {
+      max-width: 500px;
       text-align: center;
-      margin-bottom: 25px;
-      color: #ff0066;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      background: #2a2a2a;
-      color: #fff;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #ff0066;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    .toggle {
-      text-align: center;
-      margin-top: 15px;
+      margin-top: 20px;
       color: #aaa;
-      cursor: pointer;
+      font-size: 1em;
+      line-height: 1.4em;
     }
   </style>
 </head>
 <body>
-
-<div class="container">
-  <h2 id="formTitle">Connexion</h2>
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Mot de passe">
-  <button onclick="handleAuth()">Se connecter</button>
-  <div class="toggle" onclick="toggleMode()">Pas encore inscrit ? Créer un compte</div>
-</div>
-
-<script>
-  let isLogin = true;
-  const adminEmail = "admin@site.com"; // L'email de l'administrateur
-
-  function toggleMode() {
-    const title = document.getElementById('formTitle');
-    const button = document.querySelector('button');
-    const toggle = document.querySelector('.toggle');
-
-    isLogin = !isLogin;
-
-    if (isLogin) {
-      title.innerText = 'Connexion';
-      button.innerText = 'Se connecter';
-      toggle.innerText = 'Pas encore inscrit ? Créer un compte';
-    } else {
-      title.innerText = 'Créer un compte';
-      button.innerText = "S'inscrire";
-      toggle.innerText = 'Déjà inscrit ? Se connecter';
-    }
-  }
-
-  function handleAuth() {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    if (!email || !password) return alert("Champs vides !");
-
-    let users = JSON.parse(localStorage.getItem("users") || "{}");
-
-    if (isLogin) {
-      if (!users[email] || users[email] !== password) {
-        alert("Identifiants invalides !");
-        return;
-      }
-      localStorage.setItem("currentUser", email);
-      if (email === adminEmail) {
-        window.location.href = "admin.html";
-      } else {
-        window.location.href = "dashboard.html";
-      }
-    } else {
-      if (users[email]) return alert("Utilisateur déjà existant !");
-      users[email] = password;
-      localStorage.setItem("users", JSON.stringify(users));
-      alert("Compte créé !");
-      toggleMode();
-    }
-  }
-</script>
-
+  <h1>Bienvenue</h1>
+  <div class="container">
+    <a href="ia.html" class="btn"IA 🤖</a>
+    <a href="blagues.html" class="btn">Générateur Blagues Humour Noir 💀</a>
+    <p>Encore en dévloppement</p>
+  </div>
 </body>
 </html>
-
-#test
