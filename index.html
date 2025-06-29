@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Humour Noir</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f8f8f8;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff0066;
+      margin-bottom: 30px;
+    }
+
+    #quote {
+      font-size: 24px;
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    button {
+      background-color: #ff0066;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #cc0055;
+    }
+
+    .fade {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Humour noir</h1>
+  <div id="quote" class="fade">Commencé les blague</div>
+  <button onclick="generateQuote()">Clique</button>
+
+  <script>
+    const quotes = [
+      "Ma vie est comme un chargeur iPhone… elle se vide vite et chauffe pour rien.",
+      "J’ai demandé un signe de l’univers. J’ai glissé dans ma douche.",
+      "Je suis pas en dépression, je fais juste un long entretien d’embauche avec la faucheuse.",
+      "Le karma arrive toujours… en trottinette électrique sans casque.",
+      "Si l'ennui tuait vraiment, ma classe de 3e aurait été un massacre.",
+      "Je ne suis pas antisocial, je suis en mode avion émotionnel.",
+      "L’avenir me sourit… avec des dents de requin.",
+      "On dit que tout finit par s'arranger. Moi j'attends depuis 2009.",
+      "Je suis un rayon de soleil… mais celui qui te crame en pleine canicule.",
+      "Quand on me dit “ça va aller”, j’imagine un bus me passer dessus mais avec douceur.",
+      "Ma seule lumière dans la vie, c’est la LED de ma multiprise.",
+      "La patience est une vertu. Moi j'ai choisi l’ironie passive-agressive.",
+      "Le bonheur est une illusion. Heureusement j’ai une bonne imagination.",
+      "J’ai tellement touché le fond que je commence à creuser une cave.",
+      "Que dit un aveugle lorsqu'on lui donne du papier de verre ? C'est écrit tout petit",
+      "Pourquoi la petite fille tombe-t-elle de la balançoire ? Parce qu'elle n'a pas de bras",
+      "Grâce à quoi peut-on enlever le chewing-gum dans les cheveux ? Le cancer.",
+      "Qu'est-ce qui est mieux que gagner une médaille d'or aux Jeux Paralympiques ? Marcher."
+    ];
+
+    function generateQuote() {
+      const quoteElement = document.getElementById("quote");
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.classList.remove("fade");
+      void quoteElement.offsetWidth; // reset animation
+      quoteElement.classList.add("fade");
+      quoteElement.textContent = quotes[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
